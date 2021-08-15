@@ -1,5 +1,4 @@
 #include "PacketParser.h"
-using namespace std;
 
 // constructor
 PacketParser::PacketParser(char *str) {
@@ -47,6 +46,7 @@ int PacketParser::getPortInfo(const u_char *source, Packet *ptr) {
 bool PacketParser::run(Packet *ptr) {
     this->res = pcap_next_ex(this->handle, &this->header, &this->source);
     this->pos = 0;
+    ptr->saveheader(this->header);
 
     libnet_ipv4_hdr *ipv = (libnet_ipv4_hdr *)(this->source + 14);
     if(ipv->ip_p != 6)  return false;   // judge if the one is a TCP

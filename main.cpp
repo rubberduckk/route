@@ -1,16 +1,17 @@
 #include <iostream>
-#include <iomanip>
 #include <pcap.h>
 #include <libnet.h>
 #include <netinet/in.h>
 #include "PacketParser.h"
 #include "Packet.h"
+#include "PacketStatic.h"
 using namespace std;
 
 int main(int argc, char* argv[])
 {
     char *dev = argv[1];    // interface name
     PacketParser p(dev);
+    PacketStatic *ps = new PacketStatic();
     while(true){
         int res = p.getRes();
         if (res == 0)
@@ -21,7 +22,8 @@ int main(int argc, char* argv[])
         }
 
         Packet *ptr = new Packet();
-        if(p.run(ptr) == true)
-            ptr->printinfo();
+        if(p.run(ptr) == true){
+            ptr->printinfo(ps);
+        }
     }
 }

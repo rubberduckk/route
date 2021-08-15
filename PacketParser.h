@@ -2,12 +2,11 @@
 #define PACKETPARSER_H
 
 #include <iostream>
-#include <cstdio>
-#include <iomanip>
 #include <pcap.h>
 #include <libnet.h>
 #include <netinet/in.h>
 #include "Packet.h"
+using namespace std;
 
 class PacketParser {
 private:
