@@ -9,8 +9,6 @@ void Packet::printinfo(PacketStatic *ps){
     cout << "port: " << this->sport << "\t"<< this->dport << endl;
     ps->savemac(this->strsmac, this->strdmac);
     ps->saveheader(this->header);
-    ps->run();
-    cout << endl << "---------------------------------------------------------------" << endl;
 }
 
 void Packet::saveip(uint32_t sip, uint32_t dip){

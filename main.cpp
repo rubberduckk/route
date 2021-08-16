@@ -7,6 +7,8 @@
 #include "PacketStatic.h"
 using namespace std;
 
+// hello
+
 int main(int argc, char* argv[])
 {
     char *dev = argv[1];    // interface name
@@ -24,6 +26,7 @@ int main(int argc, char* argv[])
         Packet *ptr = new Packet();
         if(p.run(ptr) == true){
             ptr->printinfo(ps);
+            ps->run();
         }
     }
 }

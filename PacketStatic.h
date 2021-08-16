@@ -19,7 +19,6 @@ private:
     unordered_map <string, Data> adrstatic;
 public:
     void insertlist();
-    void adrlist();
     void saveheader(pcap_pkthdr *header);
     void statistic();
     void savemac(string smac, string dmac);
