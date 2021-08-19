@@ -100,5 +100,6 @@ void WhiteListUpdater::updater(){
              perror("inotify_rm_watch");
              exit(1);
          }
+         //
     }
 }
