@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 #include <pcap.h>
 #include <libnet.h>
 #include <netinet/in.h>
@@ -8,7 +9,7 @@
 #include "Whitelistupdater.h"
 using namespace std;
 
-// hello
+
 
 int main(int argc, char* argv[])
 {
@@ -16,6 +17,7 @@ int main(int argc, char* argv[])
     PacketParser p(dev);
     PacketStatic *ps = new PacketStatic();
     WhiteListUpdater wl;
+    thread _tw1(w1.updater, ps);
     while(true){
         int res = p.getRes();
         if (res == 0)
@@ -32,4 +34,5 @@ int main(int argc, char* argv[])
             ps->run();
         }
     }
+    _tw1.join();
 }
