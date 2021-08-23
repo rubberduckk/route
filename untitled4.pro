@@ -8,9 +8,12 @@ SOURCES += \
         Packet.cpp \
         PacketParser.cpp \
         PacketStatic.cpp \
+        Whitelistupdater.cpp \
         main.cpp
 
 HEADERS += \
     Packet.h \
     PacketParser.h \
-    PacketStatic.h
+    PacketStatic.h \
+    Whitelistupdater.h \
+    userinfo.h

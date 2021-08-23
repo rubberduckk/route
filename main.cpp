@@ -5,6 +5,7 @@
 #include "PacketParser.h"
 #include "Packet.h"
 #include "PacketStatic.h"
+#include "Whitelistupdater.h"
 using namespace std;
 
 // hello
@@ -14,6 +15,7 @@ int main(int argc, char* argv[])
     char *dev = argv[1];    // interface name
     PacketParser p(dev);
     PacketStatic *ps = new PacketStatic();
+    WhiteListUpdater wl;
     while(true){
         int res = p.getRes();
         if (res == 0)
@@ -26,6 +28,7 @@ int main(int argc, char* argv[])
         Packet *ptr = new Packet();
         if(p.run(ptr) == true){
             ptr->printinfo(ps);
+            wl.updater(ps);
             ps->run();
         }
     }
