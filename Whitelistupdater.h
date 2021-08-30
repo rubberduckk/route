@@ -1,5 +1,6 @@
 #ifndef WHITELISTUPDATER_H
 #define WHITELISTUPDATER_H
+#include "PacketStatic.h"
 #include <iostream>
 #include <string>
 #include <pcap.h>
@@ -8,32 +9,22 @@
 #include <unistd.h>  // using read()
 #include <fstream>   // using ifstream
 #include <cstring>   // using strerror
+#include <unordered_map>
+#include <errno.h>
+#include "userinfo.h"
+
 using namespace std;
 
 class WhiteListUpdater
 {
-    string pathname = "test.txt";
+    string pathname = "/home/minseo/WhiteListUpdater/test.txt";
     ifstream fin;   //define read file
-    vector <string> user_mac;
-    vector <string> white_mac;
-    struct user_info{
-        string name;
-        string mac;
-    };
-    struct white_info{
-        string name;
-        string mac;
-    };
-
-    struct user_info user_list[50];
-    struct white_info white_list[50];
-
+    unordered_map<string, userInfo> whitemac;
+    int flag;
 public:
     WhiteListUpdater();
-    ~WhiteListUpdater();
-    static void __handle_inotify_event(const struct inotify_event *event);
-    void whitelist();
-    void updater();
+    void saveData();
+    void updater(PacketStatic *ps);
 };
 
 #endif // WHITELISTUPDATER_H
