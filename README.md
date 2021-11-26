@@ -3,10 +3,10 @@ With the aim of the development of the **private network behavior monitoring sys
 <br>
 
 #### Project Members<br>
-JANG, JAEWON  <https://github.com/jej2660><br>
-KIM, SURIN    <https://github.com/uhyeon19><br>
-KIM, MINSEO   <https://github.com/minseo218><br>
-KIM, YEEUN    <https://github.com/rubberduckk><br><br><br>
+<https://github.com/jej2660><br>
+<https://github.com/uhyeon19><br>
+<https://github.com/minseo218><br>
+<https://github.com/rubberduckk><br><br><br>
 
 
 ## Private Network Behavior Monitoring System
